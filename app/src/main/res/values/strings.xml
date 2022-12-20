@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Shoe App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="shoe_app">Shoe App</string>
+    <string name="email">Email</string>
+    <string name="enter_your_email_address">Enter your email address</string>
+    <string name="password">Password</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="don_t_have_account">don\'t have account</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="welcome">Welcome</string>
+    <string name="welcome_text">welcome to the shoe app that have variety of shoes , please press instructions button to be informed of our instructions</string>
+    <string name="go_to_instruction">Go to Instruction</string>
+    <string name="instructions">Instructions</string>
+    <string name="go_to_shoe_list">go to shoe list</string>
+    <string name="name">Name</string>
+    <string name="company">Company</string>
+    <string name="size">Size</string>
+    <string name="description">Description</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="name_label">Name label</string>
+    <string name="company_label">Company label</string>
+    <string name="size_label">Size label</string>
+</resources>
