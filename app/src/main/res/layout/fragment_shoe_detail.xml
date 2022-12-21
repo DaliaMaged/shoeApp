@@ -7,7 +7,9 @@
             name="showListViewModel"
             type="com.example.shoeapp.ShoeListViewModel" />
     </data>
-
+<!--
+using constrainlayout as its dynamic and good for landscape
+-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -47,7 +49,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_name"
-                style="@style/edit_text_style" />
+                style="@style/edit_text_style"
+
+                />
 
 
         </com.google.android.material.textfield.TextInputLayout>

@@ -37,7 +37,7 @@ class ShoeDetailFragment : Fragment() {
             shoeListViewModel.setSize(binding.sizeEdit.text.toString())
             shoeListViewModel.setDescription(binding.descEdit.text.toString())
 
-            println("dodaaa $name")
+
 
             //addnew view
         }

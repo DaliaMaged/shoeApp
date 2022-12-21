@@ -9,6 +9,7 @@ class ShoeListViewModel : ViewModel() {
     //name
      val _name = MutableLiveData<String>()
     val name: LiveData<String> = _name
+    var shoeListNames:ArrayList<String> = ArrayList()
     //company
     private val _company = MutableLiveData<String>("")
     val company: LiveData<String> = _company
@@ -21,6 +22,7 @@ class ShoeListViewModel : ViewModel() {
 
     fun setName(name:String){
         _name.value=name
+        saveNames(name)
     }
  fun setCompany(company:String){
      _company.value=company
@@ -31,7 +33,10 @@ class ShoeListViewModel : ViewModel() {
     fun setDescription(description:String){
         _description.value=description
     }
-
+    fun saveNames(name:String){
+        shoeListNames.add(name)
+        println(shoeListNames)
+    }
 
 }
 

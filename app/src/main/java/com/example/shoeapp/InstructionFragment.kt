@@ -19,7 +19,7 @@ lateinit var binding: FragmentInstructionBinding
         // Inflate the layout for this fragment
        binding= DataBindingUtil.inflate(inflater,R.layout.fragment_instruction, container, false)
         binding.button.setOnClickListener {
-            it.findNavController().navigate(R.id.action_instructionFragment_to_shoeDetailFragment)
+            it.findNavController().navigate(R.id.action_instructionFragment_to_shoeListFragment)
         }
        return binding.root
     }

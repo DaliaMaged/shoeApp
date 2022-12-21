@@ -18,12 +18,13 @@ lateinit var binding: FragmentLoginBinding
     ): View? {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
-        binding.welcome.setOnClickListener {
-            it.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
-        }
-        binding.signIn.setOnClickListener {
-            it.findNavController().navigate(R.id.action_loginFragment_to_shoeDetailFragment)
 
+        binding.signIn.setOnClickListener {
+            it.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
+
+        }
+        binding.signUp.setOnClickListener {
+            it.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
         }
 
         return binding.root
