@@ -9,90 +9,64 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.navigation.findNavController
 import com.example.shoeapp.databinding.FragmentShoeListBinding
 import kotlin.math.log
+import androidx.fragment.app.activityViewModels
 
 class ShoeListFragment : Fragment() {
-lateinit var binding: FragmentShoeListBinding
- lateinit var shoeListViewModel: ShoeListViewModel
- lateinit var adpater: ShoeListAdpater
- lateinit var layout: LinearLayout
-  lateinit var shoeList:ArrayList<Shoe>
-
+    lateinit var binding: FragmentShoeListBinding
+   // lateinit var shoeListViewModel: ShoeListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding=DataBindingUtil.inflate(inflater,R.layout.fragment_shoe_list, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list, container, false)
 
 
-        shoeListViewModel=ViewModelProvider(this).get(ShoeListViewModel::class.java)
+        val shoeListViewModel = ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
+        binding.showListViewModel = shoeListViewModel
+        binding.lifecycleOwner = this
 
-       var args=ShoeListFragmentArgs.fromBundle(requireArguments())
+        shoeListViewModel.name.observe(viewLifecycleOwner, Observer { newName->
+            binding.nameText.text=newName
+           println("doda $newName")
+        })
+        shoeListViewModel.company.observe(viewLifecycleOwner, Observer { newCompany->
+            binding.companyText.text=newCompany
+
+        })
+        shoeListViewModel.size.observe(viewLifecycleOwner, Observer { newSize->
+            binding.sizeText.text=newSize
+
+        })
+        shoeListViewModel.description.observe(viewLifecycleOwner, Observer { newDescription->
+            binding.descText.text=newDescription
+
+        })
+
+
 
         binding.fabAdd.setOnClickListener {
 
             it.findNavController().navigate(R.id.action_shoeListFragment_to_shoeDetailFragment)
         }
 
-        shoeListViewModel.sList.observe(viewLifecycleOwner, Observer { newList->
-
-            newList.add(Shoe(args.name,args.company,args.size,args.description))
-
-            adpater=ShoeListAdpater(newList)
-            binding.shoeRecyclerView.adapter=adpater
-        })
 
 
-        binding.showListViewModel=shoeListViewModel
-        binding.lifecycleOwner=this
 
 
 
         return binding.root
     }
 
-
-
-
-//        var args=ShoeListFragmentArgs.fromBundle(requireArguments())
-//       binding.Name.text=args.name
-//
-//
-//        shoeListViewModel.name.observe(viewLifecycleOwner, Observer { newName ->
-//           binding.Name.text=newName
-//            shoeListViewModel.addName()
-////            var textView=TextView(context)
-////            textView.text=args.name
-////            LinearLayout.LayoutParams(
-////                LinearLayout.LayoutParams.MATCH_PARENT,
-////                LinearLayout.LayoutParams.WRAP_CONTENT)
-////                binding.myLinearLayout.addView(textView)
-////            textView.text=newName
-//
-//        })
-//        binding.Company.text=args.company
-//        shoeListViewModel.company.observe(viewLifecycleOwner, Observer { newName ->
-//            binding.Company.text=newName
-//
-//        })
-//        binding.Size.text=args.size
-//        shoeListViewModel.size.observe(viewLifecycleOwner, Observer { newName ->
-//            binding.Size.text=newName
-//        })
-//        binding.Description.text=args.description
-//        shoeListViewModel.description.observe(viewLifecycleOwner, Observer { newName ->
-//            binding.Description.text=newName
-//        })
-//    shoeListViewModel.name.observe(viewLifecycleOwner, Observer { newName ->
-//            binding.Name.text= newName.toString()
-//
-//        })
-
 }
+
+

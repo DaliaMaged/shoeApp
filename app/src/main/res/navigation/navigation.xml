@@ -49,18 +49,6 @@
         <action
             android:id="@+id/action_shoeListFragment_to_shoeDetailFragment"
             app:destination="@id/shoeDetailFragment" />
-    <argument
-            android:name="name"
-            app:argType="string" />
-        <argument
-            android:name="company"
-            app:argType="string" />
-        <argument
-            android:name="size"
-            app:argType="string" />
-        <argument
-            android:name="description"
-            app:argType="string" />
 
     </fragment>
 </navigation>

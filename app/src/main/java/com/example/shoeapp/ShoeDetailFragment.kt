@@ -13,17 +13,17 @@ import com.example.shoeapp.databinding.FragmentShoeDetailBinding
 
 class ShoeDetailFragment : Fragment() {
   lateinit var binding: FragmentShoeDetailBinding
-  lateinit var shoeListViewModel: ShoeListViewModel
-    lateinit var shoeList:ArrayList<Shoe>
+  //lateinit var shoeListViewModel: ShoeListViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding=DataBindingUtil.inflate(inflater,R.layout.fragment_shoe_detail,container,false)
-        shoeListViewModel=ViewModelProvider(this).get(ShoeListViewModel::class.java)
-
-
+        val shoeListViewModel=ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
+        binding.showListViewModel=shoeListViewModel
+        binding.lifecycleOwner=this
 
         // Inflate the layout for this fragment
         binding.saveButton.setOnClickListener {
@@ -31,16 +31,20 @@ class ShoeDetailFragment : Fragment() {
             var company=binding.companyEdit.text.toString()
             var size=binding.sizeEdit.text.toString()
             var description=binding.descEdit.text.toString()
-          it.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment(name,company, size, description))
+          it.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
+           shoeListViewModel.setName(binding.editName.text.toString())
+            shoeListViewModel.setCompany(binding.companyEdit.text.toString())
+            shoeListViewModel.setSize(binding.sizeEdit.text.toString())
+            shoeListViewModel.setDescription(binding.descEdit.text.toString())
 
+            println("dodaaa $name")
 
             //addnew view
         }
         binding.cancelButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
-        binding.showListViewModel=shoeListViewModel
-        binding.lifecycleOwner=this
+
 
         setHasOptionsMenu(true)
         return binding.root
