@@ -49,6 +49,7 @@ using constrainlayout as its dynamic and good for landscape
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_name"
+                android:text="@{showListViewModel.name}"
                 style="@style/edit_text_style"
 
                 />
@@ -68,6 +69,7 @@ using constrainlayout as its dynamic and good for landscape
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/company_edit"
+                android:text="@{showListViewModel.company}"
                 style="@style/edit_text_style" />
 
 
@@ -85,6 +87,7 @@ using constrainlayout as its dynamic and good for landscape
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/size_edit"
+                android:text="@{showListViewModel.size}"
                 style="@style/edit_text_style" />
 
 
@@ -102,6 +105,7 @@ using constrainlayout as its dynamic and good for landscape
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/desc_edit"
+                android:text="@{showListViewModel.description}"
                 style="@style/edit_text_style" />
 
 
