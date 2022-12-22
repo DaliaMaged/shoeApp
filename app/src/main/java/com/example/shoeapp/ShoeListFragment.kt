@@ -3,10 +3,8 @@ package com.example.shoeapp
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -20,6 +18,7 @@ import androidx.navigation.findNavController
 import com.example.shoeapp.databinding.FragmentShoeListBinding
 import kotlin.math.log
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.ui.NavigationUI
 
 class ShoeListFragment : Fragment() {
     lateinit var binding: FragmentShoeListBinding
@@ -33,6 +32,8 @@ class ShoeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        setHasOptionsMenu(true)
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list, container, false)
 
 
@@ -96,6 +97,16 @@ fun addView(text:String){
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
        textView.text
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.menu,menu)
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return  NavigationUI.onNavDestinationSelected(item!!,requireView().findNavController()) || super.onOptionsItemSelected(item)
     }
 }
 
