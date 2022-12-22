@@ -24,7 +24,7 @@ class ShoeDetailFragment : Fragment() {
         val shoeListViewModel=ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
         binding.showListViewModel=shoeListViewModel
         binding.lifecycleOwner=this
-
+         setHasOptionsMenu(true)
         // Inflate the layout for this fragment
         binding.saveButton.setOnClickListener {
             var name=binding.editName.text.toString()
@@ -57,8 +57,8 @@ class ShoeDetailFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!,requireView().findNavController()) || super.onOptionsItemSelected(item)
 
+        return  NavigationUI.onNavDestinationSelected(item!!,requireView().findNavController()) || super.onOptionsItemSelected(item)
+        }
     }
 
-}

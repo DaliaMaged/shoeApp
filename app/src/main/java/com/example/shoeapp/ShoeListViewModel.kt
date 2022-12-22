@@ -9,7 +9,9 @@ class ShoeListViewModel : ViewModel() {
     //name
      val _name = MutableLiveData<String>()
     val name: LiveData<String> = _name
-    var shoeListNames:ArrayList<String> = ArrayList()
+//    val shoeListNames:MutableLiveData<ArrayList<String>>
+//    val shoeListNames:LiveData<ArrayList<String>>
+       var shoeListNames:ArrayList<String> =ArrayList()
     //company
     private val _company = MutableLiveData<String>("")
     val company: LiveData<String> = _company
